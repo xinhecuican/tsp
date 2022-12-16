@@ -1,0 +1,28 @@
+{
+	"files.associations": {
+		"fstream": "cpp",
+		"regex": "cpp",
+		"system_error": "cpp",
+		"xlocmon": "cpp",
+		"xtr1common": "cpp",
+		"xstring": "cpp",
+		"vector": "cpp",
+		"xutility": "cpp",
+		"memory": "cpp",
+		"tuple": "cpp",
+		"type_traits": "cpp",
+		"utility": "cpp",
+		"xmemory0": "cpp",
+		"deque": "cpp",
+		"string": "cpp",
+		"algorithm": "cpp",
+		"*.tcc": "cpp",
+		"iomanip": "cpp",
+		"iostream": "cpp",
+		"array": "cpp",
+		"bitset": "cpp",
+		"string_view": "cpp",
+		"initializer_list": "cpp",
+		"unordered_map": "cpp"
+	}
+}
