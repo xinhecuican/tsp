@@ -10,7 +10,7 @@
 			"preLaunchTask": "build",
             "request": "launch",
             "program": "C:\\usr\\homeworks\\tsp\\build\\main.exe",
-            "args": ["PM"],
+            "args": ["AAC"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

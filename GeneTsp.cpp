@@ -15,6 +15,7 @@ GeneTSP::~GeneTSP()
 	{
 		free(population[i].path);
 	}
+	population.clear();
 }
 
 Route GeneTSP::getRoute(FileInfo info, fstream& out)
@@ -82,7 +83,7 @@ void GeneTSP::generatePopulation()
 	{
 		for(int i=0; i<population.size(); i++)
 		{
-			free(population[i].path);
+			// free(population[i].path);
 		}
 	}
 	population.clear();

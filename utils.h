@@ -55,6 +55,21 @@ struct Route
 	}
 };
 
+struct CompareStruct{
+	float weight;
+	int index;
+	CompareStruct(){weight=0;index=0;}
+	CompareStruct(int index, float weight)
+	{
+		this->index = index;
+		this->weight = weight;
+	}
+	bool operator<(const CompareStruct& compare)const
+	{
+		return weight < compare.weight;
+	}
+};
+
 static float calDistance(EDGE_WEIGHT_TYPE type, float* point1, float* point2)
 {
 	float ans;
@@ -80,6 +95,20 @@ static void shuffle(int* a, int len)
 		a[index2] = tmp;
 	}
 }
+
+
+static string ClearHeadTailSpace(string str)   
+{  
+    if (str.empty())   
+    {  
+        return str;  
+    }  
+
+    str.erase(0,str.find_first_not_of(" "));  
+    str.erase(str.find_last_not_of(" ") + 1);  
+    return str;  
+}  
+
 
 static FileInfo parseFile(string path)
 {
@@ -159,12 +188,12 @@ static FileInfo parseFile(string path)
 		getline(file, line);
 		if(line == "EOF")
 			break;
-		int s = line.find_first_not_of(" ");
-		line = line.substr(s, line.size() - s + 1);
+
+		line = ClearHeadTailSpace(line);
 		int l1 = line.find(" ");
 		int l2 = line.rfind(" ");
-		info.coord[index][0] = stoi(line.substr(l1, l2-l1+1));
-		info.coord[index][1] = stoi(line.substr(l2, line.size()-l2+1));
+		info.coord[index][0] = stof(line.substr(l1, l2-l1+1));
+		info.coord[index][1] = stof(line.substr(l2, line.size()-l2+1));
 		index++;
 	}
 
@@ -203,12 +232,13 @@ static Route parseOpt(string path, FileInfo info)
 		getline(file, line);
 		if(line == "-1" || line == "EOF")
 			break;
-		route.path[index++] = stoi(line);
+		route.path[index++] = stoi(line)-1;
 	}
 	for(int i=1; i<info.dimension; i++)
 	{
-		route.weight += info.weight[route.path[i-1]-1][route.path[i]-1];	
+		route.weight += info.weight[route.path[i-1]][route.path[i]];	
 	}
+	route.weight += info.weight[route.path[info.dimension-1]][route.path[0]];
 	file.close();
 	return route;
 }

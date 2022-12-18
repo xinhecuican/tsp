@@ -17,14 +17,6 @@ public:
 	virtual void crossover(int* parent1, int* parent2, int* path1, int* path2);
 	virtual void mutation(int* path);
 protected:
-	struct CompareStruct{
-		float weight;
-		int index;
-		bool operator<(const CompareStruct& compare)const
-		{
-			return weight < compare.weight;
-		}
-	};
 	int locationIn(int* path, int search, int size);
 	int city_size;
 	float** weight;

@@ -18,7 +18,7 @@ void PMTSP::generatePopulation()
 	{
 		for(int i=0; i<population.size(); i++)
 		{
-			free(population[i].path);
+			// free(population[i].path);
 		}
 	}
 	population.clear();
@@ -74,6 +74,8 @@ void PMTSP::generatePopulation()
 			route.path[k] = select_index;
 			map[select_index] = true;
 		}
+
+		route.weight += weight[route.path[city_size-1]][route.path[0]];
 
 		for(int i=1; i<city_size; i++)
 		{

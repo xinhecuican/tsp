@@ -23,6 +23,8 @@
 		"bitset": "cpp",
 		"string_view": "cpp",
 		"initializer_list": "cpp",
-		"unordered_map": "cpp"
+		"unordered_map": "cpp",
+		"random": "cpp",
+		"cmath": "cpp"
 	}
 }
